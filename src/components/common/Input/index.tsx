@@ -1,8 +1,7 @@
 import { theme } from "../../../styles/theme";
 import { useState } from "react";
 import { styled } from "styled-components";
-import EyeOff from "@/assets/svg/eye-off.svg";
-import EyeOpen from "@/assets/svg/eye.svg";
+import { EyeOff, EyeOpen } from "@/assets/svg";
 
 interface InputProp {
   label?: string;
