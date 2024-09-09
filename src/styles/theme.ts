@@ -5,12 +5,6 @@ export const theme = {
     white: "#fff",
     black: "#000000",
     BG: "#242424",
-    error: {
-      50: "#ffe7e6",
-      300: "#ff7679",
-      500: "#ff3b32",
-      800: "#ff261f",
-    },
     main: {
       50: "#E0FAFF",
       100: "#B3F2FF",
