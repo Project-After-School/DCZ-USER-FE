@@ -4,13 +4,7 @@ export const theme = {
   color: {
     white: "#fff",
     black: "#000000",
-    BG: "242424",
-    error: {
-      50: "#ffe7e6",
-      300: "#ff7679",
-      500: "#ff3b32",
-      800: "#ff261f",
-    },
+    BG: "#242424",
     main: {
       50: "#E0FAFF",
       100: "#B3F2FF",
@@ -24,9 +18,9 @@ export const theme = {
       900: "#00B9FF",
     },
     sub: {
-      purple: "AE55EC",
-      green: "01EC7F",
-      red: "FE5741"
+      purple: "#AE55EC",
+      green: "#01EC7F",
+      red: "#FE5741"
     },
     gray: {
       50: "#EEEEEE",
@@ -145,15 +139,6 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: 0;
     user-select: none;
-  }
-  &::-webkit-scrollbar {
-    width: 5px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: ${theme.color.gray[400]};
-    border-radius: 8px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: none;
+    background-color: ${theme.color.BG};
   }
 `;
