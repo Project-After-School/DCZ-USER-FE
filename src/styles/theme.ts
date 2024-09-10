@@ -33,7 +33,7 @@ export const theme = {
       700: "#5D5D5E",
       800: "#535354",
       900: "#414142",
-    }
+    },
   },
   font: {
     heading: {
@@ -111,8 +111,8 @@ export const theme = {
       },
       3: {
         size: "12px",
-        fontweight: "500"
-      }
+        fontweight: "500",
+      },
     },
     button: {
       1: {
@@ -126,7 +126,7 @@ export const theme = {
       3: {
         size: "12px",
         fontweight: "600",
-      }
+      },
     },
   },
   "box-shadow": "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
