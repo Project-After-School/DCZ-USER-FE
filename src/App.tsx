@@ -19,7 +19,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools />
       <GlobalStyle />
-      <RouterProvider router={Router}/>
+      <RouterProvider router={Router} />
     </QueryClientProvider>
   );
 };
