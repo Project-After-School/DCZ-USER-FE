@@ -1,31 +1,34 @@
 import Login from "@/pages/login";
 import Header from "@/components/header";
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "@/pages/home";
 
-export const Router = createBrowserRouter([
-  {
-    path: "",
-    children: [
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/home",
-        element: <Header />,
-      },
-      {
-        path: "/upload",
-        element: <Header />,
-      },
-      {
-        path: "/notice",
-        element: <Header />,
-      },
-      {
-        path: "/homework",
-        element: <Header />,
-      },
-    ],
-  },
-]);
+const loginRoute = {
+  path: "/login",
+  element: <Login />,
+};
+
+const routesWithHeader = {
+  path: "",
+  element: <Header />,
+  children: [
+    {
+      path: "/home",
+      element: <Home />,
+    },
+    {
+      path: "/upload",
+      element: <div>Upload Content</div>,
+    },
+    {
+      path: "/notice",
+      element: <div>Notice Content</div>,
+    },
+    {
+      path: "/homework",
+      element: <div>Homework Content</div>,
+    },
+  ],
+};
+
+export const Router = createBrowserRouter([loginRoute, routesWithHeader]);
