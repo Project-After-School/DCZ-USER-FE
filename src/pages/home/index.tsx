@@ -53,8 +53,9 @@ const Home = () => {
         <Title>해결할 과제</Title> <SubTitle>임박순 정렬</SubTitle>
       </Head>
       <Content>
-        {data.map((item) => (
+        {data.map((item, index) => (
           <AssignmentComponent
+            key={index}
             d_day={item.d_day}
             date={item.date}
             teacher={item.teacher}
