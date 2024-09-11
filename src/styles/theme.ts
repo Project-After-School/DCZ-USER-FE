@@ -20,7 +20,7 @@ export const theme = {
     sub: {
       purple: "#AE55EC",
       green: "#01EC7F",
-      red: "#FE5741"
+      red: "#FE5741",
     },
     gray: {
       50: "#EEEEEE",
@@ -138,7 +138,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
-    user-select: none;
+    //color: ${theme.color.white};
     background-color: ${theme.color.BG};
   }
 `;
