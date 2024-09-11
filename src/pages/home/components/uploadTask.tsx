@@ -18,8 +18,6 @@ export const UploadTask = () => {
     setFile((prevFiles) => prevFiles.filter((_, i) => i !== index));
   };
 
-  console.log(file);
-
   return (
     <Task>
       <Top>
@@ -31,18 +29,16 @@ export const UploadTask = () => {
       </Top>
       <Middle>
         {file.map((item, index) => (
-          <>
-            <FileList>
-              {item.name}
-              <DeleteButton
-                src={DeleteIcon}
-                onClick={() => handleRemoveFile(index)}
-              />
-            </FileList>
-          </>
+          <FileList key={index}>
+            {item.name}
+            <DeleteButton
+              src={DeleteIcon}
+              onClick={() => handleRemoveFile(index)}
+            />
+          </FileList>
         ))}
       </Middle>
-      <Button width="100%" disabled height="51px">
+      <Button width="100%" disabled={file.length === 0} height="51px">
         과제 제출하기
       </Button>
     </Task>
