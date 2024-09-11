@@ -7,6 +7,7 @@ interface ButtonProps {
   disabled?: boolean;
   onClick?: () => void;
   error?: boolean;
+  height?: string;
 }
 
 const Button = ({
@@ -15,6 +16,7 @@ const Button = ({
   disabled = false,
   onClick,
   error,
+  height,
 }: ButtonProps) => {
   return (
     <ButtonContainer
@@ -22,6 +24,7 @@ const Button = ({
       width={width}
       disabled={disabled}
       onClick={onClick}
+      height={height}
     >
       {children}
     </ButtonContainer>
@@ -30,7 +33,11 @@ const Button = ({
 
 export default Button;
 
-const ButtonContainer = styled.button<{ width: string; error?: boolean }>`
+const ButtonContainer = styled.button<{
+  width: string;
+  error?: boolean;
+  height?: string;
+}>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,6 +46,7 @@ const ButtonContainer = styled.button<{ width: string; error?: boolean }>`
   color: ${theme.color.black};
   background-color: ${theme.color.main[500]};
   border-radius: 8px;
+  height: ${({ height }) => (height ? height : "auto")};
 
   font-size: ${theme.font.button[1].size};
   font-weight: ${theme.font.button[1].fontweight};
