@@ -1,11 +1,31 @@
+import React, { useRef, useEffect, useState } from "react";
 import { Outlet, useLocation } from "react-router-dom";
 import Tab from "./common/tab";
 import { BasicProfile, DCZLogo } from "@/assets/svg";
 import { styled } from "styled-components";
-import { theme } from "@/styles/theme";
+import { ProfileMenu } from "./profileMenu";
 
 const Header = () => {
   const pathname = useLocation().pathname.split("/")[1];
+  const [profileMenu, setProfileMenu] = useState<boolean>(false);
+  const profileMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(event.target as Node)
+      ) {
+        setProfileMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -23,7 +43,13 @@ const Header = () => {
             selected={pathname}
           />
         </LeftHeaderContent>
-        <img src={BasicProfile} alt="" width={52} height={52} />
+        <Profile ref={profileMenuRef}>
+          <img
+            src={BasicProfile}
+            onClick={() => setProfileMenu(!profileMenu)}
+          />
+          {profileMenu && <ProfileMenu />}
+        </Profile>
       </Headers>
       <Content>
         <Outlet />
@@ -51,4 +77,10 @@ const LeftHeaderContent = styled.nav`
 
 const Content = styled.div`
   padding: 0px 23%;
+`;
+
+const Profile = styled.div`
+  position: relative;
+  width: 52px;
+  height: 52px;
 `;
