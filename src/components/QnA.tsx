@@ -102,8 +102,8 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 500px;
-  width: 400px;
+  height: 420px;
+  width: 280px;
 `;
 
 const ExplainText = styled.p`
