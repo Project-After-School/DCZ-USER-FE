@@ -21,9 +21,9 @@ export default Subject;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
   gap: 15px;
+  user-select: none;
   cursor: pointer;
 `;
 
@@ -35,7 +35,6 @@ const ImageContainer = styled.img<{ isHovered: boolean }>`
     ${({ isHovered }) =>
       isHovered ? theme.color.main[500] : theme.color.gray[400]};
   background-color: ${theme.color.gray[400]};
-  user-select: none;
 `;
 
 const SubjectText = styled.p<{ isHovered: boolean }>`
@@ -43,5 +42,4 @@ const SubjectText = styled.p<{ isHovered: boolean }>`
   font-weight: ${theme.font.heading[4].fontweight};
   color: ${({ isHovered }) =>
     isHovered ? theme.color.main[500] : theme.color.gray[400]};
-  user-select: none;
 `;

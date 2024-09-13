@@ -59,7 +59,6 @@ const SubjectContainer = styled.div`
   height: 100%;
   gap: 44px;
   overflow-x: scroll;
-  overflow-y: hidden;
   scrollbar-width: none;
 `;
 
@@ -74,8 +73,6 @@ const NoticeContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  /* height: 100%; */
-  gap: 68px; //padding으로 못 바꾸나...?
-  overflow-x: hidden;
+  gap: 68px;
   overflow-y: scroll;
 `;

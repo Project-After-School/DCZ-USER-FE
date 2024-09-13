@@ -58,7 +58,7 @@ const SubContainer = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 13.5px 0px;
+  padding: 13px 0px;
 `;
 
 const TeacherText = styled.p`

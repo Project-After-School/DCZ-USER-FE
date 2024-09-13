@@ -26,13 +26,13 @@ const Container = styled(Link)`
   align-items: center;
   width: 100%;
   text-decoration: none;
+  user-select: none;
 `;
 
 const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
   gap: 15px;
 `;
 
@@ -40,19 +40,16 @@ const TitleText = styled.p`
   font-size: ${theme.font.heading[3].size};
   font-weight: ${theme.font.heading[3].fontweight};
   color: ${theme.color.white};
-  user-select: none;
 `;
 
 const SubTitleText = styled.p`
   font-size: ${theme.font.body[1].size};
   font-weight: ${theme.font.body[1].fontweight};
   color: ${theme.color.gray[200]};
-  user-select: none;
 `;
 
 const CheckText = styled.p`
   font-size: ${theme.font.body[1].size};
   font-weight: ${theme.font.body[1].fontweight};
   color: ${theme.color.gray[600]};
-  user-select: none;
 `;
