@@ -1,6 +1,8 @@
 import Login from "@/pages/login";
 import Header from "@/components/header";
 import Home from "@/pages/home";
+import Notice from "@/pages/notice";
+import NoticeDetail from "@/pages/notice/detail";
 import { createBrowserRouter } from "react-router-dom";
 import { AssignmentDetailPage } from "@/pages/home/detail";
 
@@ -42,7 +44,16 @@ const routesWithHeader = {
     },
     {
       path: "/notice",
-      element: <div>Notice Content</div>,
+      children: [
+        {
+          path: "",
+          element: <Notice />,
+        },
+        {
+          path: ":id",
+          element: <NoticeDetail />,
+        },
+      ],
     },
     {
       path: "/homework",
