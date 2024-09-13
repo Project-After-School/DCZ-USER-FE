@@ -70,6 +70,7 @@ const Task = styled.div`
   justify-content: space-between;
   min-height: 220px;
   gap: 40px;
+  margin-bottom: 60px;
 `;
 
 const FileList = styled.div`
