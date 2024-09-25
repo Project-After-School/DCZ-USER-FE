@@ -9,7 +9,7 @@ export const instance = axios.create({
 });
 
 export const loginInstance = axios.create({
-  baseURL: import.meta.env.VITE_SERVER_BASE_URL,
+  baseURL: BASEURL,
   timeout: 3000,
 });
 

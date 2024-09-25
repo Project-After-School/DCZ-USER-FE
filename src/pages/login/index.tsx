@@ -23,11 +23,19 @@ const Login = () => {
     }));
   };
 
-  const useLogin = () =>
-    loginInstance.post("user/login", data).then((res) => {
-      cookie.set("access_token", res.data.access_token);
-      router("/home");
-    });
+  const handleLogin = () =>
+    loginInstance
+      .post("user/login", data)
+      .then((res) => {
+        cookie.set("access_token", res.data.access_token);
+        router("/home");
+      })
+      .catch((error) => {
+        alert(
+          "로그인 처리 중 에러가 발생했습니다"
+        ); /**나중에 토스트로 바꿀 예정 */
+        console.log(error);
+      });
 
   return (
     <Container>
@@ -55,7 +63,7 @@ const Login = () => {
             placeholder="비밀번호 입력"
           />
         </InputContainer>
-        <Button width="318px" onClick={useLogin}>
+        <Button width="318px" onClick={handleLogin}>
           로그인하기
         </Button>
       </SubContainer>
