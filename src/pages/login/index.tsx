@@ -7,10 +7,16 @@ import { loginInstance } from "@/apis";
 import { useState } from "react";
 import { cookie } from "@/utils/auth";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+interface LoginData {
+  account_id: string;
+  password: string;
+}
 
 const Login = () => {
   const router = useNavigate();
-  const [data, setData] = useState({
+  const [data, setData] = useState<LoginData>({
     account_id: "",
     password: "",
   });
@@ -23,20 +29,26 @@ const Login = () => {
     }));
   };
 
-  const handleLogin = () =>
-    loginInstance
-      .post("user/login", data)
-      .then((res) => {
-        cookie.set("access_token", res.data.access_token);
-        router("/home");
-      })
-      .catch((error) => {
-        alert(
-          "로그인 처리 중 에러가 발생했습니다"
-        ); /**나중에 토스트로 바꿀 예정 */
-        console.log(error);
-      });
-
+  const handleLogin = async () => {
+    try {
+      const res = await loginInstance.post("user/login", data);
+      cookie.set("access_token", res.data.access_token);
+      router("/home");
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 401) {
+          // 토스트 메시지 구현
+          console.error("로그인 실패: 잘못된 자격 증명");
+        } else {
+          // 토스트 메시지 구현
+          console.error("로그인 중 오류 발생:", error.message);
+        }
+      } else {
+        // 토스트 메시지 구현
+        console.error("알 수 없는 오류 발생:", error);
+      }
+    }
+  };
   return (
     <Container>
       <img src={DCZLogo} />
