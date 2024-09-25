@@ -99,6 +99,7 @@ const InputLabel = styled.label`
 const EyesContainer = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 const Container = styled.div`
@@ -109,4 +110,4 @@ const Container = styled.div`
 
 const EyeImg = styled.img`
   background-color: ${theme.color.gray[900]};
-`
+`;
